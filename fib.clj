@@ -37,7 +37,7 @@
 
 ;; sample output
 
-(doseq [c (range -1 20)] (println (str c) (fib1 c)))
-(doseq [c (range -1 20)] (println (str c) (fib2 c)))
-(doseq [c (range -1 20)] (println (str c) (fib3 c)))
-(doseq [c (range -1 20)] (println (str c) (fib4 c)))
+(require '[clojure.string :as str])
+
+(doseq [c (range -1 20)]
+  (println (str/join " " [c (fib1 c) (fib2 c) (fib3 c) (fib4 c)])))
