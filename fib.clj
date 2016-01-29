@@ -1,4 +1,12 @@
 ;; simple programs to calculate and print fibonacci numbers
+
+;; using iterate
+;; 1-28-2016
+(defn fib4 [n]
+  (if (< n 0) nil 
+      (let [ nextOne (fn [[a,b]] [b,(+ a b)]) ]
+        (nth (nth (iterate nextOne [0,1]) n) 0))))
+
 ;; using recursion. slightly cleaner than fib1 by using better
 ;; parameter handling
 ;; 1-28-2016      
@@ -32,3 +40,4 @@
 (doseq [c (range -1 20)] (println (str c) (fib1 c)))
 (doseq [c (range -1 20)] (println (str c) (fib2 c)))
 (doseq [c (range -1 20)] (println (str c) (fib3 c)))
+(doseq [c (range -1 20)] (println (str c) (fib4 c)))
