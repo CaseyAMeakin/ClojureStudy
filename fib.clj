@@ -1,4 +1,12 @@
-;; simple program to calculate and print fibonacci numbers
+;; simple programs to calculate and print fibonacci numbers
+;; using recursion. slightly cleaner than fib1 by using better
+;; parameter handling
+;; 1-28-2016      
+(defn fib3 
+  ([n] (if (< n 0) nil (fib3 n [0,1])))
+  ([n [a b]] (if (zero? n) a
+                 (fib3 (dec n) [b, (+ a b)]))))
+
 ;; using loop/recur
 ;; 1-28-2016
 
@@ -10,7 +18,6 @@
           (recur [(nth fib_ 1) (apply + fib_)] (dec i))))))
 
 
-;; simple program to calculate and print fibonacci numbers
 ;; using recursion. my first clojure program eva'.
 ;; 1-27-2016
 
@@ -24,3 +31,4 @@
 
 (doseq [c (range -1 20)] (println (str c) (fib1 c)))
 (doseq [c (range -1 20)] (println (str c) (fib2 c)))
+(doseq [c (range -1 20)] (println (str c) (fib3 c)))
