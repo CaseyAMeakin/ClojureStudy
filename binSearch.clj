@@ -1,6 +1,8 @@
-; binary search an array, return index if found and nil otherwise
-; search for all numbers in a simple integer sequence as a test
-; and print results
+;; binary search an array, return index if found and nil otherwise
+;; search for all numbers in a simple integer sequence as a test
+;; and print results.  Pretty ugly, but one of my first clojure programs
+;; so bear with me.
+;; 1-27-2016
 
 (defn binSearch
   ([x dat] (binSearch x dat 0))
@@ -13,6 +15,9 @@
              (if (> x xmid) (binSearch x (subvec dat (+ kmid 1)) (+ klo kmid 1))
                  (if (< x xmid) (binSearch x (subvec dat 0 kmid) klo ) (+ klo kmid) )))))))
 
+
+
+; sample output
 
 (def myData (vec (range 100)))
 (doseq [x myData] (do
