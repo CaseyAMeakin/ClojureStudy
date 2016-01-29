@@ -1,11 +1,18 @@
 ;; simple programs to calculate and print fibonacci numbers
 
+;; using iterate and anonymous function
+;; 1-29-2016
+(defn fib5 [n]
+  (if (< n 0) nil
+      (nth (nth (iterate (fn [[a,b]] [b,(+ a b)])[0,1]) n) 0)))
+
 ;; using iterate
 ;; 1-28-2016
 (defn fib4 [n]
   (if (< n 0) nil 
       (let [ nextOne (fn [[a,b]] [b,(+ a b)]) ]
         (nth (nth (iterate nextOne [0,1]) n) 0))))
+
 
 ;; using recursion. slightly cleaner than fib1 by using better
 ;; parameter handling
@@ -40,4 +47,4 @@
 (require '[clojure.string :as str])
 
 (doseq [c (range -1 20)]
-  (println (str/join " " [c (fib1 c) (fib2 c) (fib3 c) (fib4 c)])))
+  (println (str/join " " [c ":" (fib1 c) (fib2 c) (fib3 c) (fib4 c) (fib5 c)])))
