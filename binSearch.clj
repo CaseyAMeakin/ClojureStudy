@@ -16,10 +16,8 @@
                  (if (< x xmid) (binSearch x (subvec dat 0 kmid) klo ) (+ klo kmid) )))))))
 
 
-
 ; sample output
 
 (def myData (vec (range 100)))
-(doseq [x myData] (do
-                    (def i (binSearch x myData))
-                    (println x (nth myData i))))
+(doseq [x (shuffle (range 100))]
+  (println x (nth myData (binSearch x myData))))
