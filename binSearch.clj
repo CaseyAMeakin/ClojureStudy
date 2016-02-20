@@ -1,6 +1,6 @@
 ;; binary search an array, return index if found and nil otherwise
 ;; search for all numbers in a simple integer sequence as a test
-;; and print results.  Pretty ugly, but one of my first clojure programs
+;; and print results. One of my first clojure programs
 ;; so bear with me.
 ;; 1-27-2016
 
